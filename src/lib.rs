@@ -2,6 +2,7 @@ use ethers::core::types::*;
 use ethers::signers::coins_bip39::{English, Mnemonic};
 use ethers::utils::keccak256;
 use rayon::prelude::*;
+use std::path::Path;
 use std::sync::mpsc;
 
 mod util;
@@ -184,6 +185,10 @@ impl Pocketh {
         let random_sig = rx.recv().expect("No selector found");
 
         Ok(random_sig)
+    }
+
+    pub fn compile_contract(&self, path: impl AsRef<Path>) -> eyre::Result<String> {
+        todo!("wip")
     }
 }
 
